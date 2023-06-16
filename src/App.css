@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+/* html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+} */
+
+.emoji-container {
+  width: 380px;
+  height: 474px !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.emoji-container .container {
+  width: 100% !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s;
+  border-radius: 10px;
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button:hover {
+  background-color: #ddd;
+  transition: all 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.item {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item img {
+  width: 30px;
+  height: 30px;
+}
+
+.category-btn {
+  background-size: calc(30px * 10);
+  display: inline-block;
+  height: 30px;
+  outline: none;
+  position: relative;
+  transition: opacity 0.2s ease-in-out;
+  width: 30px;
+  margin: 5px 8px;
+  background-position: 0 0;
+  background-image: url(./svg/CategoryNav.svg);
+}
+
+.epr-icn-smileys_people {
+  background-position-x: 0;
+}
+
+.epr-icn-animals_nature {
+  background-position-x: calc(30px * -1);
+}
+
+.epr-icn-food_drink {
+  background-position-x: calc(30px * -2);
+}
+
+.epr-icn-travel_places {
+  background-position-x: calc(30px * -3);
+}
+
+.epr-icn-activities {
+  background-position-x: calc(30px * -4);
+}
+
+.epr-icn-objects {
+  background-position-x: calc(30px * -5);
+}
+
+.epr-icn-symbols {
+  background-position-x: calc(30px * -6);
+}
+
+.epr-icn-flags {
+  background-position-x: calc(30px * -7);
+}
+
+.active-category {
+  background-position-y: 30px;
+  opacity: 1;
 }
