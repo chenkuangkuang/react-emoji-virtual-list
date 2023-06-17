@@ -1,7 +1,7 @@
 {
     "name": "react-emoji-virtual-list",
     "description": "Implemented emoji picker using virtual list, solved the problem that 'emoji-picker-react' is too slow to open",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author":"chenkuangkuang",
     "license":"MIT",
     "keywords": [ "Component","emoji","React", "emoji virtual list"],
