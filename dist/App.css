@@ -3,42 +3,33 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow: visible;
-}
+  overflow: visible; }
 
 .emoji-container {
   width: 380px;
   height: 474px !important;
   /* overflow-y: scroll; */
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
 
 .emoji-container .container {
   width: 100% !important;
   /* height: 100% !important; */
-  /* overflow: scroll; */
-}
+  /* overflow: scroll; */ }
 
 button {
   border: none;
   background-color: transparent;
   transition: all 0.3s;
   border-radius: 10px;
-  padding: 5px;
-}
+  padding: 5px; }
 
 button:hover {
   background-color: #ddd;
-  transition: all 0.3s;
-}
-
-.item {
-}
+  transition: all 0.3s; }
 
 .item img {
   width: 30px;
-  height: 30px;
-}
+  height: 30px; }
 
 .category-btn {
   background-size: calc(30px * 10);
@@ -50,42 +41,32 @@ button:hover {
   width: 30px;
   margin: 5px 8px;
   background-position: 0 0;
-  background-image: url(./svg/CategoryNav.svg);
-}
+  background-image: url(./svg/CategoryNav.svg); }
 
 .epr-icn-smileys_people {
-  background-position-x: 0;
-}
+  background-position-x: 0; }
 
 .epr-icn-animals_nature {
-  background-position-x: calc(30px * -1);
-}
+  background-position-x: calc(30px * -1); }
 
 .epr-icn-food_drink {
-  background-position-x: calc(30px * -2);
-}
+  background-position-x: calc(30px * -2); }
 
 .epr-icn-travel_places {
-  background-position-x: calc(30px * -3);
-}
+  background-position-x: calc(30px * -3); }
 
 .epr-icn-activities {
-  background-position-x: calc(30px * -4);
-}
+  background-position-x: calc(30px * -4); }
 
 .epr-icn-objects {
-  background-position-x: calc(30px * -5);
-}
+  background-position-x: calc(30px * -5); }
 
 .epr-icn-symbols {
-  background-position-x: calc(30px * -6);
-}
+  background-position-x: calc(30px * -6); }
 
 .epr-icn-flags {
-  background-position-x: calc(30px * -7);
-}
+  background-position-x: calc(30px * -7); }
 
 .active-category {
   background-position-y: 30px;
-  opacity: 1;
-}
+  opacity: 1; }

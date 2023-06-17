@@ -93,7 +93,7 @@ const Index = () => {
 
   // console.log('items=', items);
 
-  return <>
+  return <div>
     {Categories.map(i => {
       return <button
         className={"category-btn " + ("epr-icn-" + i) + " " + (i === activeCategory ? "active-category" : "")}
@@ -109,7 +109,7 @@ const Index = () => {
         className="container"
         id="container"
         scrollContainer={"#emoji-container"}
-        // gap={5}
+        gap={5}
         ref={domRef}
         isConstantSize={true}
         onRequestAppend={(e) => {
@@ -120,10 +120,10 @@ const Index = () => {
           ]);
         }}
       >
-        {items.map((item) => <Item j={item.j} />)}
+        {items.map((item) => <Item data-grid-groupkey={item.groupKey} key={item.key}  j={item.j} />)}
       </MasonryInfiniteGrid>;
     </div>
-  </>
+  </div>
 }
 
 export default Index;
