@@ -49,7 +49,7 @@ function getItems(nextGroupKey, count, category) {
             j: category ? emojiList.filter(function (x) { return x.category === category; })[nextKey + i] : emojiList[nextKey + i]
         });
     }
-    console.log('nextItems=0', nextItems);
+    // console.log('nextItems=0', nextItems);
     return nextItems;
 }
 var handleClick = function (item) {
@@ -59,11 +59,11 @@ var handleClick = function (item) {
     if ((/\-/g.test(item.u))) {
         var strArr = item.u.split("-").filter(function (i) { return i; }).map(function (i) { return "0x" + i; });
         targetEmoji = String.fromCodePoint.apply(String, strArr.map(function (i) { return Number(i); }));
-        console.log('667=', targetEmoji);
+        // console.log('667=', targetEmoji);
     }
     else {
         targetEmoji = String.fromCodePoint(Number("0x" + item.u));
-        console.log('66=', targetEmoji, item);
+        // console.log('66=', targetEmoji, item);
     }
     handleCallback(targetEmoji, item);
 };
@@ -99,7 +99,6 @@ var Index = function (_a) {
             React.createElement(MasonryInfiniteGrid, { className: "container", id: "container", scrollContainer: "#emoji-container", gap: 5, ref: domRef, isConstantSize: true, onRequestAppend: function (e) {
                     var nextGroupKey = +(e.groupKey || 0) + 1;
                     setItems(__spreadArray(__spreadArray([], items, true), getItems(nextGroupKey, 80, activeCategory), true));
-                } }, items.map(function (item) { return React.createElement(Item, { "data-grid-groupkey": item.groupKey, key: item.key, j: item.j }); })),
-            ";"));
+                } }, items.map(function (item) { return React.createElement(Item, { "data-grid-groupkey": item.groupKey, key: item.key, j: item.j }); }))));
 };
 export default Index;

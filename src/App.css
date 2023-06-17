@@ -1,91 +1,107 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  overflow: visible;
+.emoji-container {
+    width: 380px;
+    height: 474px !important;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
 }
 
-.emoji-container {
-  width: 380px;
-  height: 474px !important;
-  /* overflow-y: scroll; */
-  overflow-x: hidden;
+/* 设置滚动条的样式 */
+.emoji-container::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 8px;
+    background-color: #7e7e7e3f;
+    position: absolute;
+    right: -10px;
+}
+
+/* 滚动槽 */
+.emoji-container::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+/* 滚动条滑块 */
+.emoji-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: rgb(180, 180, 180);
 }
 
 .emoji-container .container {
-  width: 100% !important;
-  /* height: 100% !important; */
-  /* overflow: scroll; */
+    width: 100% !important;
+    /* height: 100% !important; */
+    /* overflow: scroll; */
 }
 
 button {
-  border: none;
-  background-color: transparent;
-  transition: all 0.3s;
-  border-radius: 10px;
-  padding: 5px;
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 button:hover {
-  background-color: #ddd;
-  transition: all 0.3s;
+    background-color: #ddd;
+    transition: all 0.3s;
 }
 
 .item {
 }
 
 .item img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .category-btn {
-  background-size: calc(30px * 10);
-  display: inline-block;
-  height: 30px;
-  outline: none;
-  position: relative;
-  transition: opacity 0.2s ease-in-out;
-  width: 30px;
-  margin: 5px 8px;
-  background-position: 0 0;
-  background-image: url(./svg/CategoryNav.svg);
+    background-size: calc(30px * 10);
+    display: inline-block;
+    height: 30px;
+    outline: none;
+    position: relative;
+    transition: opacity 0.2s ease-in-out;
+    width: 31px;
+    margin: 5px 8.5px;
+    background-position: 0 0;
+    background-image: url(./svg/CategoryNav.svg);
+}
+
+.category-btn:nth-child(1){
+  margin-left: 3px;
 }
 
 .epr-icn-smileys_people {
-  background-position-x: 0;
+    background-position-x: 0;
 }
 
 .epr-icn-animals_nature {
-  background-position-x: calc(30px * -1);
+    background-position-x: calc(30px * -1);
 }
 
 .epr-icn-food_drink {
-  background-position-x: calc(30px * -2);
+    background-position-x: calc(30px * -2);
 }
 
 .epr-icn-travel_places {
-  background-position-x: calc(30px * -3);
+    background-position-x: calc(30px * -3);
 }
 
 .epr-icn-activities {
-  background-position-x: calc(30px * -4);
+    background-position-x: calc(30px * -4);
 }
 
 .epr-icn-objects {
-  background-position-x: calc(30px * -5);
+    background-position-x: calc(30px * -5);
 }
 
 .epr-icn-symbols {
-  background-position-x: calc(30px * -6);
+    background-position-x: calc(30px * -6);
 }
 
 .epr-icn-flags {
-  background-position-x: calc(30px * -7);
+    background-position-x: calc(30px * -7);
 }
 
 .active-category {
-  background-position-y: 30px;
-  opacity: 1;
+    background-position-y: 30px;
+    opacity: 1;
 }

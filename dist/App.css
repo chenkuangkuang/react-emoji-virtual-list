@@ -1,15 +1,26 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  overflow: visible; }
-
+@charset "UTF-8";
 .emoji-container {
   width: 380px;
   height: 474px !important;
   /* overflow-y: scroll; */
   overflow-x: hidden; }
+
+/* 设置滚动条的样式 */
+.emoji-container::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 8px;
+  background-color: #7e7e7e3f;
+  position: absolute;
+  right: -10px; }
+
+/* 滚动槽 */
+.emoji-container::-webkit-scrollbar-track {
+  border-radius: 8px; }
+
+/* 滚动条滑块 */
+.emoji-container::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #b4b4b4; }
 
 .emoji-container .container {
   width: 100% !important;
@@ -38,10 +49,13 @@ button:hover {
   outline: none;
   position: relative;
   transition: opacity 0.2s ease-in-out;
-  width: 30px;
-  margin: 5px 8px;
+  width: 31px;
+  margin: 5px 8.5px;
   background-position: 0 0;
   background-image: url(./svg/CategoryNav.svg); }
+
+.category-btn:nth-child(1) {
+  margin-left: 3px; }
 
 .epr-icn-smileys_people {
   background-position-x: 0; }

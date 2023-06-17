@@ -131,7 +131,7 @@ const Index = ({ selectCallback }: { selectCallback: (emoji: any, item: any) => 
         }}
       >
         {items.map((item) => <Item data-grid-groupkey={item.groupKey} key={item.key} j={item.j} />)}
-      </MasonryInfiniteGrid>;
+      </MasonryInfiniteGrid>
     </div>
   </div>
 }
