@@ -33,7 +33,7 @@ var Categories = [
     'flags'
 ];
 ;
-var emojiList = [], index = 1, allEmoji = emojiSource;
+var emojiList = [], index = 1, allEmoji = emojiSource, handleCallback;
 Object.keys(allEmoji).map(function (i, categoryIndex) {
     var arr = allEmoji[i].map(function (j) { return (__assign(__assign({}, j), { category: i, groupKey: categoryIndex, index: index++ })); });
     emojiList = emojiList.concat(arr);
@@ -55,28 +55,38 @@ function getItems(nextGroupKey, count, category) {
 var handleClick = function (item) {
     if (!item.u)
         return;
+    var targetEmoji;
     if ((/\-/g.test(item.u))) {
         var strArr = item.u.split("-").filter(function (i) { return i; }).map(function (i) { return "0x" + i; });
-        console.log('667=', String.fromCodePoint.apply(String, strArr.map(function (i) { return Number(i); })));
+        targetEmoji = String.fromCodePoint.apply(String, strArr.map(function (i) { return Number(i); }));
+        console.log('667=', targetEmoji);
     }
     else {
-        console.log('66=', String.fromCodePoint(Number("0x" + item.u)));
+        targetEmoji = String.fromCodePoint(Number("0x" + item.u));
+        console.log('66=', targetEmoji, item);
     }
+    handleCallback(targetEmoji, item);
 };
 var Item = function (_a) {
     var j = _a.j;
     return j ? React.createElement("button", { className: "item", onClick: function () { return handleClick(j); } },
         React.createElement("img", { alt: j.u, src: "https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/".concat(j.u, ".png") })) : null;
 };
-var Index = function () {
-    var _a = React.useState(Categories[0]), activeCategory = _a[0], setActiveCategory = _a[1];
+var Index = function (_a) {
+    var selectCallback = _a.selectCallback;
+    var _b = React.useState(Categories[0]), activeCategory = _b[0], setActiveCategory = _b[1];
     var domRef = React.useRef(null);
     var containerRef = React.useRef(null);
-    var _b = React.useState(function () { return getItems(0, 10); }), items = _b[0], setItems = _b[1];
+    var _c = React.useState(function () { return getItems(0, 10); }), items = _c[0], setItems = _c[1];
     var scrollCategoryIntoView = function (category) {
         setItems(getItems(0, 80, category));
         setActiveCategory(category);
     };
+    React.useEffect(function () {
+        if (selectCallback) {
+            handleCallback = selectCallback;
+        }
+    }, [selectCallback]);
     // console.log('items=', items);
     return React.createElement("div", null,
         Categories.map(function (i) {

@@ -19,5 +19,7 @@ export type itemType = {
     key: number;
     j: DataEmoji;
 };
-declare const Index: () => React.JSX.Element;
+declare const Index: ({ selectCallback }: {
+    selectCallback: (emoji: any, item: any) => void;
+}) => React.JSX.Element;
 export default Index;

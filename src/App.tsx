@@ -32,7 +32,7 @@ export interface emojiSourceType {
   [key: string]: DataEmojiPure[];
 }
 
-let emojiList: DataEmojis = [], index = 1, allEmoji: emojiSourceType = emojiSource;
+let emojiList: DataEmojis = [], index = 1, allEmoji: emojiSourceType = emojiSource, handleCallback: (emoji: any, item: any) => void;
 
 Object.keys(allEmoji).map((i, categoryIndex) => {
   var arr = allEmoji[i].map((j: DataEmojiPure) => ({ ...j, category: i, groupKey: categoryIndex, index: index++ }));
@@ -57,18 +57,22 @@ function getItems(nextGroupKey: number, count: number, category?: string) {
       j: category ? emojiList.filter(x => x.category === category)[nextKey + i] : emojiList[nextKey + i]
     });
   }
-  console.log('nextItems=0', nextItems);
+  // console.log('nextItems=0', nextItems);
   return nextItems;
 }
 
 const handleClick = (item: DataEmoji) => {
   if (!item.u) return;
+  let targetEmoji;
   if ((/\-/g.test(item.u))) {
     const strArr = item.u.split("-").filter(i => i).map(i => "0x" + i);
-    console.log('667=', String.fromCodePoint(...strArr.map(i => Number(i))));
+    targetEmoji = String.fromCodePoint(...strArr.map(i => Number(i)));
+    // console.log('667=', targetEmoji);
   } else {
-    console.log('66=', String.fromCodePoint(Number("0x" + item.u)));
+    targetEmoji = String.fromCodePoint(Number("0x" + item.u));
+    // console.log('66=', targetEmoji, item);
   }
+  handleCallback(targetEmoji, item);
 }
 
 const Item = ({ j }: { j: DataEmoji }) => {
@@ -77,7 +81,7 @@ const Item = ({ j }: { j: DataEmoji }) => {
   </button> : null
 };
 
-const Index = () => {
+const Index = ({ selectCallback }: { selectCallback: (emoji: any, item: any) => void }) => {
 
   const [activeCategory, setActiveCategory] = React.useState(Categories[0]);
 
@@ -90,6 +94,12 @@ const Index = () => {
     setItems(getItems(0, 80, category));
     setActiveCategory(category);
   }
+
+  React.useEffect(() => {
+    if (selectCallback) {
+      handleCallback = selectCallback;
+    }
+  }, [selectCallback])
 
   // console.log('items=', items);
 
@@ -120,7 +130,7 @@ const Index = () => {
           ]);
         }}
       >
-        {items.map((item) => <Item data-grid-groupkey={item.groupKey} key={item.key}  j={item.j} />)}
+        {items.map((item) => <Item data-grid-groupkey={item.groupKey} key={item.key} j={item.j} />)}
       </MasonryInfiniteGrid>;
     </div>
   </div>
