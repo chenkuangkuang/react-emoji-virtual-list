@@ -16,4 +16,4 @@ import { ReactEmojiVirtualList } from 'react-emoji-virtual-list'
 
 ### demo
 
-![demo](demo.png);
+![demo](demo.png)
