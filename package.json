@@ -1,17 +1,28 @@
 {
     "name": "react-emoji-virtual-list",
     "description": "Implemented emoji picker using virtual list, solved the problem that 'emoji-picker-react' is too slow to open",
-    "version": "0.1.4",
-    "author":"chenkuangkuang",
-    "license":"MIT",
-    "keywords": [ "Component","emoji","React", "emoji virtual list"],
+    "version": "0.1.6",
+    "author": "chenkuangkuang",
+    "license": "MIT",
+    "keywords": [
+        "Component",
+        "emoji",
+        "React",
+        "emoji virtual list"
+    ],
     "homepage": "github.com/chenkuangkuang/react-emoji-virtual-list",
-    "repository": { "type": "git", "url": "github.com/chenkuangkuang/react-emoji-virtual-list" },
-    "files": ["dist"],
+    "repository": {
+        "type": "git",
+        "url": "github.com/chenkuangkuang/react-emoji-virtual-list"
+    },
+    "files": [
+        "dist"
+    ],
     "main": "dist/index.js",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "dependencies": {
+        "@egjs/react-infinitegrid": "^4.10.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
@@ -52,7 +63,5 @@
             "last 1 safari version"
         ]
     },
-    "devDependencies": {
-        "@egjs/react-infinitegrid": "^4.10.0"
-    }
+    "devDependencies": {}
 }
